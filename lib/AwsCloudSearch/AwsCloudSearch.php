@@ -105,6 +105,22 @@ class AwsCloudSearch
     }
 
     /**
+     * Get all pending documents
+     *
+     * @return array
+     *
+     * @throws \Exception
+     */
+    public function getPendingDocuments()
+    {
+        if (!$this->inTransaction) {
+            throw new \Exception('Not currently in a transaction');
+        }
+
+        return $this->pendingSdfs;
+    }
+
+    /**
      * Start a batch of document transfers rather than sending immediately
      *
      * @throws \Exception
@@ -130,10 +146,12 @@ class AwsCloudSearch
         $this->checkForTransaction();
 
         // loop through the pending sdfs and send over in batches to document/batch endpoint
-        $this->documentBatch($this->pendingSdfs);
+        $return = $this->documentBatch($this->pendingSdfs);
 
         // reset the transaction to complete process
         $this->clearTransaction();
+
+        return $return;
     }
 
     /**
@@ -167,6 +185,18 @@ class AwsCloudSearch
         foreach ($documents as $document) {
             $this->pendingSdfs[] = $document;
         }
+    }
+
+    /**
+     * Helper function to process a single document
+     *
+     * @param $document
+     *
+     * @return array
+     */
+    public function processDocument($document)
+    {
+        return $this->processDocuments(array($document));
     }
 
     /**
