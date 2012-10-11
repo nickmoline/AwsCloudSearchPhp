@@ -31,12 +31,19 @@ class SearchResponse extends AbstractResponse
         $hits = $this->parsedData->hits->hit;
 
         $hits = array_map(function ($item) {
-            return $item->data;
+            if (isset($item->data)) {
+                return $item->data;
+            }
+            else {
+                return $item->id;
+            }
         }, $hits);
 
         foreach ($hits as $key => $hit) {
-            foreach ($hit as $dataKey => $data) {
-                $hits[$key]->{$dataKey} = $data[0];
+            if (is_object($hit)) {
+                foreach ($hit as $dataKey => $data) {
+                    $hits[$key]->{$dataKey} = $data[0];
+                }
             }
         }
 

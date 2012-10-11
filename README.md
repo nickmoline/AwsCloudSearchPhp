@@ -20,6 +20,7 @@ Pass your CloudSearch domain and server location to initialise the class:-
     $cloudSearch = new \AwsCloudSearch\AwsCloudSearch(<domain>, <server location>);
 
     // search domain's indexed documents
+    $cloudSearch->setReturnFields(<array of fields in storage>);
     $response = $cloudSearch->search(<term>, <additional parameters>);
     if ($response->wasSuccessful()) {
         print_r($response->getHitDocuments());
