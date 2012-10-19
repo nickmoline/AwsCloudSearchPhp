@@ -50,6 +50,7 @@ Documents must be formatted to the [Search Data Format (SDF)](http://docs.amazon
  * Complete Response classes
  * PHPDoc blocks
  * Send documents in blocks rather than attempting all at once
+ * Handle HTML error response - e.g. 403 Forbidden
 
 ## Getting Help
 If you need help or have questions, please contact [Mark Wilson](http://twitter.com/mark_wilson).
