@@ -30,6 +30,11 @@ class SearchResponse extends AbstractResponse
 
         $hits = $this->parsedData->hits->hit;
 
+        if (0 === count($hits)) {
+            $this->hits = null;
+            return;
+        }
+
         $returnHits = array();
         foreach ($hits as $hit) {
             if (isset($hit->data)) {
