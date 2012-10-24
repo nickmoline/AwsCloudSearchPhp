@@ -30,14 +30,15 @@ class SearchResponse extends AbstractResponse
 
         $hits = $this->parsedData->hits->hit;
 
-        $hits = array_map(function ($item) {
-            if (isset($item->data)) {
-                return $item->data;
+        $returnHits = array();
+        foreach ($hits as $hit) {
+            if (isset($hit->data)) {
+                $returnHits[$hit->id] = $hit->data;
             }
             else {
-                return $item->id;
+                $returnHits[$hit->id] = $hit->id;
             }
-        }, $hits);
+        }
 
         foreach ($hits as $key => $hit) {
             if (is_object($hit)) {
