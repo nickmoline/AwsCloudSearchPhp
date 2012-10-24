@@ -40,15 +40,15 @@ class SearchResponse extends AbstractResponse
             }
         }
 
-        foreach ($hits as $key => $hit) {
+        foreach ($returnHits as $key => $hit) {
             if (is_object($hit)) {
                 foreach ($hit as $dataKey => $data) {
-                    $hits[$key]->{$dataKey} = $data[0];
+                    $returnHits[$key]->{$dataKey} = $data[0];
                 }
             }
         }
 
-        $this->hits = $hits;
+        $this->hits = $returnHits;
     }
 
     public function getHitDocuments()
