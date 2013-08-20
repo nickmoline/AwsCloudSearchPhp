@@ -14,6 +14,14 @@ For detailed instructions, check out [Making Amazon CloudSearch API Requests](ht
     curl -s https://getcomposer.org/installer | php
     php composer.phar install
 
+Require "markwilson/awscloudsearchphp" in your composer.json:-
+
+    {
+        "require": {
+            "markwilson/awscloudsearchphp": "dev-master"
+        }
+    }
+
 Pass your CloudSearch domain and server location to initialise the class:-
 
     $loader = require 'vendor/autoload.php';
