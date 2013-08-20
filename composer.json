@@ -2,7 +2,7 @@
     "name": "markwilson/awscloudsearchphp",
     "type": "library",
     "description": "Basic integration AWS CloudSearch API",
-    "keywords": "cloudsearch",
+    "keywords": ["cloudsearch"],
     "homepage": "https://github.com/markwilson/AwsCloudSearchPhp",
     "license": "MIT",
     "authors": [
