@@ -48,7 +48,7 @@ class SearchResponse extends AbstractResponse
         foreach ($returnHits as $key => $hit) {
             if (is_object($hit)) {
                 foreach ($hit as $dataKey => $data) {
-                    $returnHits[$key]->{$dataKey} = $data[0];
+                    $returnHits[$key]->{$dataKey} = (!empty($data) ? $data[0] : null);
                 }
             }
         }
