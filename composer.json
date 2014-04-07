@@ -1,15 +1,20 @@
 {
-    "name": "markwilson/awscloudsearchphp",
+    "name": "sandyman/awscloudsearchphp",
     "type": "library",
     "description": "Basic integration AWS CloudSearch API",
-    "keywords": ["cloudsearch"],
-    "homepage": "https://github.com/markwilson/AwsCloudSearchPhp",
+    "keywords": ["amazon", "aws", "cloudsearch"],
+    "homepage": "https://github.com/Sandyman/AwsCloudSearchPhp",
     "license": "MIT",
     "authors": [
         {
             "name": "Mark Wilson",
             "email": "mark@89allport.co.uk",
             "homepage": "http://markwilson.me"
+        },
+        {
+            "name": "Sander Huijsen",
+            "email": "sander.huijsen@gmail.com",
+            "homepage": "https://github.com/Sandyman"
         }
     ],
     "require": {
@@ -21,3 +26,4 @@
         }
     }
 }
+
