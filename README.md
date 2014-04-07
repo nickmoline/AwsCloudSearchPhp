@@ -1,6 +1,6 @@
 # AwsCloudSearch PHP API Wrapper
 
-A library to interact with Amazon's AWS CloudSearch API.
+A library to interact with Amazon's AWS CloudSearch API. Please note that this is a fork of Mark Wilson's AwsCloudSearchPhp. You might want to use his library in stead (see Credits).
 
 ## Requirements
 * PHP 5+
