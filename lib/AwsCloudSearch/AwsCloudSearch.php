@@ -17,7 +17,6 @@ class AwsCloudSearch
      * Protocol used to connect to CloudSearch API
      */
     const PROTOCOL = 'http';
-
     /**
      * CloudSearch internal limit on document batch size
      */
@@ -26,15 +25,18 @@ class AwsCloudSearch
      * CloudSearch internal limit on single document size
      */
     const MAXIMUM_SDF_SIZE = 1048576; // 1MB
-
     /**
      * Method date - API version?
      */
-    const METHOD_DATE = '2011-02-01';
+    const METHOD_DATE = '2013-01-01';
     /**
      * Search API endpoint path
      */
     const SEARCH_PATH = 'search';
+    /**
+     * Suggest API endpoint path
+     */
+    const SUGGEST_PATH = 'suggest';
     /**
      * Document batch API endpoint path
      */
@@ -77,12 +79,17 @@ class AwsCloudSearch
      */
     private $searchableFields = array();
 
+	/**
+	 * @var API date
+	 */
+	private $apiDate;
 
     /**
      * Initialise some fundamental class variables
      */
     public function __construct($domain, $serverLocation)
     {
+    	$this->apiDate = self::METHOD_DATE;
         $this->checkRequirements();
 
         // initialise an empty array of pending SDF documents
@@ -91,6 +98,16 @@ class AwsCloudSearch
         $this->domain = $domain;
         $this->serverLocation = $serverLocation;
     }
+
+	/**
+	 * Set API date.
+	 *
+	 * @param String  apiDate
+	 */
+	public function setApiDate(String $apiDate)
+	{
+		$this->apiDate = $apiDate;
+	}
 
     /**
      * Initialise base search fields
@@ -225,9 +242,9 @@ class AwsCloudSearch
     {
         $params['q'] = $term;
 
-        if (!isset($params['return-fields']) && isset($this->searchableFields)) {
+        if (!isset($params['return']) && isset($this->searchableFields)) {
             $returnFields = $this->searchableFields;
-            $params['return-fields'] = implode(',', $this->searchableFields);
+            $params['return'] = implode(',', $this->searchableFields);
         }
 
         $url = $this->buildUrl(self::SEARCH_DOMAIN_PREFIX, self::SEARCH_PATH);
@@ -241,6 +258,26 @@ class AwsCloudSearch
         }
 
         return new Response\SearchResponse($return);
+    }
+
+    /**
+     * Get suggestions
+     *
+     * @param string	$term
+     * @param string	$suggester
+     * @param array		$param
+     *
+     * @return array
+     */
+    public function suggest($term, $suggester, Array $params = array())
+    {
+        $params['q'] = $term;
+        $params['suggester'] = $suggester;
+
+        $url = $this->buildUrl(self::SEARCH_DOMAIN_PREFIX, self::SUGGEST_PATH);
+        $return = $this->doGetRequest($url, $params);
+
+        return new Response\SuggestResponse($return);
     }
 
     /**
@@ -393,7 +430,7 @@ class AwsCloudSearch
         $url = self::PROTOCOL . '://' . $domainPrefix . '-'
             . $this->domain . '.' . $this->serverLocation . '.'
             . self::CLOUDSEARCH_DOMAIN . '/'
-            . self::METHOD_DATE . '/' . $urlPath;
+            . $this->apiDate . '/' . $urlPath;
 
         return $url;
     }
