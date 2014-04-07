@@ -22,7 +22,7 @@ Require "sandyman/awscloudsearchphp" in your composer.json:-
         }
     }
 
-Pass your CloudSearch domain and server location to initialise the class:-
+Pass your CloudSearch domain and server location to initialise the class:
 
     $loader = require 'vendor/autoload.php';
     $cloudSearch = new \AwsCloudSearch\AwsCloudSearch(<domain>, <server location>);
@@ -50,16 +50,9 @@ Pass your CloudSearch domain and server location to initialise the class:-
         print_r($response->getErrors());
     }
 
-Documents must be formatted to the [Search Data Format (SDF)](http://docs.amazonwebservices.com/cloudsearch/latest/developerguide/GettingStartedSendData.html).
+You can also check out the samples/ directory.
 
-## To Do
- * Error handling
- * Initialise CloudSearch indexing
- * Complete Response classes
- * PHPDoc blocks
- * Send documents in blocks rather than attempting all at once
- * Handle HTML error response - e.g. 403 Forbidden
- * Improve search and rank configuration - move to an object rather array
+Documents must be formatted to the [Search Data Format (SDF)](http://docs.amazonwebservices.com/cloudsearch/latest/developerguide/GettingStartedSendData.html).
 
 ## Getting Help
 If you need help or have questions, please contact [Sander Huijsen](http://twitter.com/ahuijsen).
