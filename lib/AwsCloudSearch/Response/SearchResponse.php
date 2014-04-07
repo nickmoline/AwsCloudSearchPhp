@@ -34,7 +34,9 @@ class SearchResponse extends AbstractResponse
             $this->hits = null;
             return;
         }
-
+        
+		/* Not sure what this is supposed to do
+		 *
         $returnHits = array();
         foreach ($hits as $hit) {
             if (isset($hit->data)) {
@@ -52,8 +54,10 @@ class SearchResponse extends AbstractResponse
                 }
             }
         }
-
         $this->hits = $returnHits;
+		*/
+
+		$this->hits = $hits;
     }
 
     public function getHitDocuments()
@@ -63,6 +67,15 @@ class SearchResponse extends AbstractResponse
         }
 
         return $this->hits;
+    }
+
+    public function getErrors()
+    {
+        if ($this->wasSuccessful()) {
+            throw new \Exception('No errors in response');
+        }
+
+        return $this->parsedData->errors;
     }
 
     public function __toString()
