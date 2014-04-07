@@ -56,6 +56,18 @@ class SuggestResponse extends AbstractResponse
     }
 
 	/**
+	 * Get errors that occurred
+	 */
+    public function getErrors()
+    {
+        if ($this->wasSuccessful()) {
+            throw new \Exception('No errors in response');
+        }
+
+        return $this->parsedData->errors;
+    }
+
+	/**
 	 * String representation of suggestions
 	 */
     public function __toString()
