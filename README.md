@@ -14,11 +14,11 @@ For detailed instructions, check out [Making Amazon CloudSearch API Requests](ht
     curl -s https://getcomposer.org/installer | php
     php composer.phar install
 
-Require "markwilson/awscloudsearchphp" in your composer.json:-
+Require "sandyman/awscloudsearchphp" in your composer.json:-
 
     {
         "require": {
-            "markwilson/awscloudsearchphp": "dev-master"
+            "sandyman/awscloudsearchphp": "dev-master"
         }
     }
 
@@ -62,7 +62,7 @@ Documents must be formatted to the [Search Data Format (SDF)](http://docs.amazon
  * Improve search and rank configuration - move to an object rather array
 
 ## Getting Help
-If you need help or have questions, please contact [Mark Wilson](http://twitter.com/mark_wilson).
+If you need help or have questions, please contact [Sander Huijsen](http://twitter.com/ahuijsen).
 
 ## Credits
-Inspiration from [awsCloudSearchPHP](https://github.com/gregavola/awsCloudSearchPHP) by [Greg Avola](http://twitter.com/gregavola).
+Forked from [AwsCloudSearchPhp](https://github.com/markwilson/AwsCloudSearchPhp).
