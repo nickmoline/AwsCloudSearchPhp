@@ -33,14 +33,15 @@ class SuggestResponse extends AbstractResponse
             $this->suggestions = null;
             return;
         }
-
+/*
         $returnSuggestions = array();
         foreach ($suggestions as $suggestion) {
             if (isset($suggestion->suggestion)) {
                 $returnSuggestions[$suggestion->id] = $suggestion->suggestion;
             }
         }
-        $this->suggestions = $returnSuggestions;
+*/
+        $this->suggestions = $suggestions;
     }
 
 	/**
