@@ -1,6 +1,6 @@
 # AwsCloudSearch PHP API Wrapper
 
-A library to interact with Amazon's AWS CloudSearch API. Please note that this is a fork of Mark Wilson's AwsCloudSearchPhp. You might want to use his library in stead (see Credits).
+A library to interact with Amazon's AWS CloudSearch API. Please note that this is a fork of Sander Huijsen's fork of Mark Wilson's AwsCloudSearchPhp. You might want to use one of their libraries in stead (see Credits).
 
 ## Requirements
 * PHP 5+
@@ -14,11 +14,11 @@ For detailed instructions, check out [Making Amazon CloudSearch API Requests](ht
     curl -s https://getcomposer.org/installer | php
     php composer.phar install
 
-Require "sandyman/awscloudsearchphp" in your composer.json:-
+Require "raptor404/awscloudsearchphp" in your composer.json:-
 
     {
         "require": {
-            "sandyman/awscloudsearchphp": "dev-master"
+            "raptor404/awscloudsearchphp": "dev-master"
         }
     }
 
@@ -54,8 +54,5 @@ You can also check out the samples/ directory.
 
 Documents must be formatted to the [Search Data Format (SDF)](http://docs.amazonwebservices.com/cloudsearch/latest/developerguide/GettingStartedSendData.html).
 
-## Getting Help
-If you need help or have questions, please contact [Sander Huijsen](http://twitter.com/ahuijsen).
-
 ## Credits
-Forked from [AwsCloudSearchPhp](https://github.com/markwilson/AwsCloudSearchPhp).
+Forked from [AwsCloudSearchPhp](https://github.com/sandyman/AwsCloudSearchPhp) which is a for of [AwsCloudSearchPhp](https://github.com/markwilson/AwsCloudSearchPhp).

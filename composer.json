@@ -1,9 +1,9 @@
 {
-    "name": "sandyman/awscloudsearchphp",
+    "name": "raptor404/awscloudsearchphp",
     "type": "library",
     "description": "Basic integration AWS CloudSearch API",
     "keywords": ["amazon", "aws", "cloudsearch"],
-    "homepage": "https://github.com/Sandyman/AwsCloudSearchPhp",
+    "homepage": "https://github.com/raptor404/AwsCloudSearchPhp",
     "license": "MIT",
     "authors": [
         {
@@ -15,7 +15,12 @@
             "name": "Sander Huijsen",
             "email": "sander.huijsen@gmail.com",
             "homepage": "https://github.com/Sandyman"
-        }
+        },
+	{
+	"name":"Nick Blackhawk",
+	"email":"nrbhawk@gmail.com",
+	"homepage": "https://github.com/raptor404"
+	}
     ],
     "require": {
         "php": ">=5.3.0"
