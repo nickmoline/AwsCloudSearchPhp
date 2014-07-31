@@ -7,6 +7,7 @@ class SearchResponse extends AbstractResponse
     private $searchedFields;
 
     private $hits;
+    public $props;
 
     public function __construct(Array $data)
     {
@@ -29,7 +30,8 @@ class SearchResponse extends AbstractResponse
         }
 
         $hits = $this->parsedData->hits->hit;
-
+	$this->props = $this->parsedData->hits;
+	$this->cursor = $this->parsedData->hits->cursor;
         if (0 === count($hits)) {
             $this->hits = null;
             return;
