@@ -30,13 +30,15 @@ class SearchResponse extends AbstractResponse
             return;
         }
 
-        $hits = $this->parsedData->hits->hit;
-	$this->props = $this->parsedData->hits;
-	$this->cursor = $this->parsedData->hits->cursor;
-	if(isset($this->parsedData->facets))
-	{
-		$this->facets = $this->parsedData->facets;
-	}
+		$hits = $this->parsedData->hits->hit;
+		$this->props = $this->parsedData->hits;
+		$this->cursor = $this->parsedData->hits->cursor;
+		
+		if(isset($this->parsedData->facets))
+		{
+			$this->facets = $this->parsedData->facets;
+		}
+	
         if (0 === count($hits)) {
             $this->hits = null;
             return;
